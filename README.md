@@ -1,1 +1,2 @@
 # GradeGuru
+*GradeGuru is a command-line grade calculator and GPA tracker designed to help students manage their coursework and monitor academic progress. The program allows users to add courses, record grades for individual assignments, and automatically calculate both per-course averages and overall GPA. Users can also run “what-if” scenarios to explore how future grades might affect their GPA.*
