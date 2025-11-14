@@ -4,3 +4,23 @@ GradeGuru is a command-line grade calculator and GPA tracker designed to help st
 
 ### Requirements
 Python 3.8 or higher
+libaries: 
+
+### How to Use GradeGuru
+
+1- Add a Course : 
+
+2- Add asignments :
+
+3- View currnent Course Averages : 
+
+4- View GPA : 
+
+5- For “What-If” Scenarios :
+
+### Interpretation of the Output
+
+
+
+
+### Acknowledgements 
