@@ -45,9 +45,3 @@ class DataManager:
         return profile
 
 
-        for cdata in data["courses"]:
-            course = Course.from_dict(cdata)
-            profile.courses.append(course)
-
-
-        return profile
