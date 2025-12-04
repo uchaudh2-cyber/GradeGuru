@@ -2,6 +2,11 @@ from student_profile import StudentProfile
 from data_manager import DataManager
 
 def main():
+    """Run the GradeGuru command-line interface.
+
+    Loads existing data, displays prompts, and processes user choices.
+    The program continues until the user selects Save & Exit.
+    """
     profile = DataManager.load()
 
     while True:
@@ -66,6 +71,3 @@ def main():
 
         else:
             print("Invalid choice.")
-
-if __name__ == "__main__":
-    main()
