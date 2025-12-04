@@ -4,11 +4,10 @@ GradeGuru is a command-line grade calculator and GPA tracker designed to help st
 
 The goal of this project is to demonstrate object-oriented design, file handling, and testing skills using Python.
 
-### Requirements
-Python 3.8 or higher : 
-
-libaries:
-
+### 📁 Requirements
+- **Python 3.8 or higher**
+- Standard Python libraries (no external installs required)
+  
 ### Project Features
 
 Add courses and record assignments
@@ -24,39 +23,63 @@ Save and load all data using JSON
 Fully tested using pytest
 
 ### Project Structure
-assignment.py
 
-Defines the Assignment class.
-Each assignment stores a name, score, and weight.
-This class handles weighted score calculations and supports conversion to/from a dictionary for file saving.
+### `assignment.py`
+Defines the `Assignment` class.  
+Stores:
+- name  
+- score  
+- weight  
 
-course.py
+Handles weighted score calculations and JSON-ready dictionary conversion.
 
-Defines the Course class.
-A course contains multiple assignments and is responsible for computing its overall weighted average.
-It also supports adding assignments and converting its data for storage.
+### `course.py`
+Defines the `Course` class.
 
-student_profile.py
+Course responsibilities:
+- Store multiple assignments  
+- Add new assignments  
+- Compute weighted course averages  
+- Convert course data to/from dictionary format  
 
-Defines the StudentProfile class.
-This class manages all of a student’s courses, calculates GPA, provides summaries, and runs what-if predictions.
+### `student_profile.py`
+Defines the `StudentProfile` class.  
+Manages:
+- List of courses  
+- GPA calculation  
+- Per-course summary  
+- What-if predictions
 
-data_manager.py
+### `student_profile_letter.py`  
+Same as `student_profile.py`, but also:
+- Converts GPA values to **letter grades**  
+- Useful for extended GPA reporting  
 
-Handles saving and loading data to a JSON file.
-The file is used to restore the user’s profile so progress is never lost between program runs.
+### `data_manager.py`
+Handles saving/loading data via JSON:
+- Saves courses and assignments  
+- Loads previous saved profiles  
+- Ensures user progress is not lost  
 
-menu.py
 
-This is the main user interface.
-It displays the menu options, accepts input, and calls the appropriate methods.
-This is the file you run to start GradeGuru.
+### `menu.py`
+The main user interface.
+Run this file to start **GradeGuru**.
 
-tests/test_all.py
-
-Contains all pytest test functions.
-These tests verify the behavior of every major part of the program, including assignments, courses, the student profile, and file storage.
-
+Responsibilities:
+- Display menu options  
+- Get and validate user input  
+- Call profile methods  
+- Save data on exit
+  
+### `tests/test_all.py`
+Contains Pytest test cases.  
+Tests:
+- Assignment behavior  
+- Course average calculations  
+- GPA computation  
+- JSON storage and retrieval
+  
 ### How to Run the Program
 1. Open a terminal inside the project folder
 
