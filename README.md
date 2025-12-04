@@ -80,45 +80,39 @@ Tests:
 - GPA computation  
 - JSON storage and retrieval
   
-### How to Run the Program
-1. Open a terminal inside the project folder
+### ▶️ How to Run the Program
+#### 1. Open a terminal inside the project folder
 
-For example:
+   For example:
 
-C:\Users\YourName\GradeGuru>
+  "C:\Users\YourName\GradeGuru>"
 
-2. Run the menu program
-python menu.py
+#### 2. Run the menu program
+   
+  " python menu.py "
 
-3. Use the interactive menu
+#### 3. Use the interactive menu
 
-You will see something like:
+ You will see something like:
 
-=== GradeGuru Menu ===
-1. Add Course
-2. Add Assignment
-3. View Summary
-4. Calculate GPA
-5. What-If Scenario
-6. Save & Exit
+     === GradeGuru Menu ===
+       1. Add Course
+       2. Add Assignment
+       3. View Summary
+       4. Calculate GPA
+       5. What-If Scenario
+       6. Save & Exit
 
 
-You can choose:
-
-Add Course: Creates a new course by entering a name and credit value
-
-Add Assignment: Adds a new graded item to a course
-
-View Summary: Shows each course and its current average
-
-Calculate GPA: Computes your GPA based on course performance
-
-What-If Scenario: Predicts how a future score might impact a course average
-
-Save & Exit: Saves everything to a JSON file and closes the program
-
-The program will guide you step by step.
-
+#### 4. You can choose:
+   
+ - Add Course — Creates a new course by entering a name and credit value
+ - Add Assignment — Adds a new graded item to a course
+ - View Summary — Shows each course and its current average
+ - Calculate GPA — Computes your GPA based on course performance
+ - What-If Scenario — Predicts how a future score might impact a course average
+ - Save & Exit — Saves everything to a JSON file and closes the program
+   
 ### 🧮 How to Use GradeGuru
 #### 1️⃣ Add a Course
 - Enter course name
