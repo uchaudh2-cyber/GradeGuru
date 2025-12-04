@@ -22,9 +22,9 @@ Save and load all data using JSON
 
 Fully tested using pytest
 
-### Project Structure
+### 📚 File Descriptions
 
-### `assignment.py`
+#### `assignment.py`
 Defines the `Assignment` class.  
 Stores:
 - name  
@@ -33,7 +33,7 @@ Stores:
 
 Handles weighted score calculations and JSON-ready dictionary conversion.
 
-### `course.py`
+#### `course.py`
 Defines the `Course` class.
 
 Course responsibilities:
@@ -42,7 +42,7 @@ Course responsibilities:
 - Compute weighted course averages  
 - Convert course data to/from dictionary format  
 
-### `student_profile.py`
+#### `student_profile.py`
 Defines the `StudentProfile` class.  
 Manages:
 - List of courses  
@@ -50,19 +50,19 @@ Manages:
 - Per-course summary  
 - What-if predictions
 
-### `student_profile_letter.py`  
+#### `student_profile_letter.py`  
 Same as `student_profile.py`, but also:
 - Converts GPA values to **letter grades**  
 - Useful for extended GPA reporting  
 
-### `data_manager.py`
+#### `data_manager.py`
 Handles saving/loading data via JSON:
 - Saves courses and assignments  
 - Loads previous saved profiles  
 - Ensures user progress is not lost  
 
 
-### `menu.py`
+#### `menu.py`
 The main user interface.
 Run this file to start **GradeGuru**.
 
@@ -72,7 +72,7 @@ Responsibilities:
 - Call profile methods  
 - Save data on exit
   
-### `tests/test_all.py`
+#### `tests/test_all.py`
 Contains Pytest test cases.  
 Tests:
 - Assignment behavior  
@@ -119,17 +119,24 @@ Save & Exit: Saves everything to a JSON file and closes the program
 
 The program will guide you step by step.
 
-### How to Use GradeGuru
+### 🧮 How to Use GradeGuru
+#### 1️⃣ Add a Course
+- Enter course name
+- Enter number of credits
 
-1- Add a Course : 
+#### 2️⃣ Add Assignments
+- Choose a course
+- Enter assignment name
+- Enter score and weight
 
-2- Add asignments :
+#### 3️⃣ View Course Averages
+- Shows weighted average for each course.
 
-3- View currnent Course Averages : 
+#### 4️⃣ View Overall GPA
+- Automatically calculated based on course averages + credits.
 
-4- View GPA : 
-
-5- For “What-If” Scenarios :
+#### 5️⃣ Run “What-If” Scenarios
+- Predict how a future score affects a specific course.
 
 ### Interpretation of the Output
 Course Summary Example
