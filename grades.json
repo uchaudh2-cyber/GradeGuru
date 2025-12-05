@@ -1,0 +1,20 @@
+{
+    "courses": [
+        {
+            "name": "math",
+            "credits": 3,
+            "assignments": [
+                {
+                    "name": "assignment1",
+                    "score": 70.0,
+                    "weight": 0.2
+                },
+                {
+                    "name": "assignment2",
+                    "score": 100.0,
+                    "weight": 0.1
+                }
+            ]
+        }
+    ]
+}

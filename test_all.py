@@ -93,6 +93,15 @@ def test_what_if_prediction():
     new_avg = p.what_if("Science", 100)
     assert new_avg > 80  
 
+def test_course_is_passing():
+    c = Course("Biology", 3)
+    c.add_assignment("Exam1", 70, 1.0)   
+    assert c.calculate_average() >= 60   
+
+def test_course_is_not_passing():
+    c = Course("Chemistry", 4)
+    c.add_assignment("Exam1", 50, 1.0)   
+    assert c.calculate_average() < 60   
 
 # -------------------------
 # DataManager Tests

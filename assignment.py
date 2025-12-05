@@ -40,6 +40,23 @@ class Assignment:
             "score": self.score,
             "weight": self.weight
         }
+    def update_score(self, new_score):
+        """Update the raw score for the assignment.
+
+        Parameters:
+            new_score (float): The new score to assign.
+
+        This method allows users to correct mistakes
+        or adjust the grade after feedback.
+        """
+        self.score = float(new_score)
+    def is_passing(self):
+        """Return True if the score is passing, False otherwise.
+
+        Passing is defined as 60% or higher.
+        """
+        return self.score >= 60
+    
 
     @staticmethod
     def from_dict(data):
