@@ -1,13 +1,17 @@
 # GradeGuru — Command-Line GPA & Grade Tracker
+
 ### Description
+
 GradeGuru is a command-line grade calculator and GPA tracker designed to help students manage their coursework and monitor academic progress. The program allows users to add courses, record grades for individual assignments, and automatically calculate both per-course averages and overall GPA. Users can also run “what-if” scenarios to explore how future grades might affect their GPA.
 
 The goal of this project is to demonstrate object-oriented design, file handling, and testing skills using Python.
 
-### 📁 Requirements
-- **Python 3.8 or higher**
-- Standard Python libraries (no external installs required)
-  
+### Requirements
+
+Python 3.8 or higher :
+
+libaries:
+
 ### Project Features
 
 Add courses and record assignments
@@ -22,135 +26,115 @@ Save and load all data using JSON
 
 Fully tested using pytest
 
-### 📚 File Descriptions
+### Project Structure
 
-#### `assignment.py`
-Defines the `Assignment` class.  
-Stores:
-- name  
-- score  
-- weight  
+assignment.py
 
-Handles weighted score calculations and JSON-ready dictionary conversion.
+Defines the Assignment class.
+Each assignment stores a name, score, and weight.
+This class handles weighted score calculations and supports conversion to/from a dictionary for file saving.
 
-#### `course.py`
-Defines the `Course` class.
+course.py
 
-Course responsibilities:
-- Store multiple assignments  
-- Add new assignments  
-- Compute weighted course averages  
-- Convert course data to/from dictionary format  
+Defines the Course class.
+A course contains multiple assignments and is responsible for computing its overall weighted average.
+It also supports adding assignments and converting its data for storage.
 
-#### `student_profile.py`
-Defines the `StudentProfile` class.  
-Manages:
-- List of courses  
-- GPA calculation  
-- Per-course summary  
-- What-if predictions
+student_profile.py
 
-#### `student_profile_letter.py`  
-Same as `student_profile.py`, but also:
-- Converts GPA values to **letter grades**  
-- Useful for extended GPA reporting  
+Defines the StudentProfile class.
+This class manages all of a student’s courses, calculates GPA, provides summaries, runs what-if predictions, and checks if a course is passing or not.
 
-#### `data_manager.py`
-Handles saving/loading data via JSON:
-- Saves courses and assignments  
-- Loads previous saved profiles  
-- Ensures user progress is not lost  
+data_manager.py
 
+Handles saving and loading data to a JSON file.
+The file is used to restore the user’s profile so progress is never lost between program runs.
 
-#### `menu.py`
-The main user interface.
-Run this file to start **GradeGuru**.
+menu.py
 
-Responsibilities:
-- Display menu options  
-- Get and validate user input  
-- Call profile methods  
-- Save data on exit
-  
-#### `tests/test_all.py`
-Contains Pytest test cases.  
-Tests:
-- Assignment behavior  
-- Course average calculations  
-- GPA computation  
-- JSON storage and retrieval
-  
-### ▶️ How to Run the Program
-#### 1. Open a terminal inside the project folder
+This is the main user interface.
+It displays the menu options, accepts input, and calls the appropriate methods.
+This is the file you run to start GradeGuru.
 
-   For example:
+tests/test_all.py
 
-  "C:\Users\YourName\GradeGuru>"
+Contains all pytest test functions.
+These tests verify the behavior of every major part of the program, including assignments, courses, the student profile, and file storage.
 
-#### 2. Run the menu program
-   
-  " python menu.py "
+### How to Run the Program
 
-#### 3. Use the interactive menu
+1. Open a terminal inside the project folder
 
- You will see something like:
+For example:
 
-     === GradeGuru Menu ===
-       1. Add Course
-       2. Add Assignment
-       3. View Summary
-       4. Calculate GPA
-       5. What-If Scenario
-       6. Save & Exit
+C:\Users\YourName\GradeGuru>
 
+2. Run the menu program
+   python menu.py
 
-#### 4. You can choose:
-   
- - Add Course — Creates a new course by entering a name and credit value
- - Add Assignment — Adds a new graded item to a course
- - View Summary — Shows each course and its current average
- - Calculate GPA — Computes your GPA based on course performance
- - What-If Scenario — Predicts how a future score might impact a course average
- - Save & Exit — Saves everything to a JSON file and closes the program
-   
-### 🧮 How to Use GradeGuru
-#### 1️⃣ Add a Course
-- Enter course name
-- Enter number of credits
+3. Use the interactive menu
 
-#### 2️⃣ Add Assignments
-- Choose a course
-- Enter assignment name
-- Enter score and weight
+You will see something like:
 
-#### 3️⃣ View Course Averages
-- Shows weighted average for each course.
+=== GradeGuru Menu ===
 
-#### 4️⃣ View Overall GPA
-- Automatically calculated based on course averages + credits.
+1. Add Course
+2. Add Assignment
+3. View Summary
+4. Calculate GPA
+5. What-If Scenario
+6. Is Passing?
+7. Save & Exit
 
-#### 5️⃣ Run “What-If” Scenarios
-- Predict how a future score affects a specific course.
+You can choose:
+
+Add Course: Creates a new course by entering a name and credit value
+
+Add Assignment: Adds a new graded item to a course
+
+View Summary: Shows each course and its current average
+
+Calculate GPA: Computes your GPA based on course performance
+
+What-If Scenario: Predicts how a future score might impact a course average
+
+Is Passing?: Checks whether a course’s weighted average is 60% or higher
+
+Save & Exit: Saves everything to a JSON file and closes the program
+
+The program will guide you step by step.
+
+### How to Use GradeGuru
+
+1- Add a Course :
+
+2- Add asignments :
+
+3- View currnent Course Averages :
+
+4- View GPA :
+
+5- For “What-If” Scenarios :
+
+6- view is a course is passing :
 
 ### Interpretation of the Output
+
 Course Summary Example
 Math: 87.50%
 English: 92.00%
 Biology: 78.50%
-
 
 This shows you how well you are doing in each course based on weighted assignment scores.
 
 GPA Example
 Your GPA: 3.40
 
-
 This value reflects your course averages weighted by credit hours.
 
 What-If Example
 What-if predicted average for Science: 85.60%
 
-
 This helps you estimate how a future grade might change your course average, which can be useful for planning.
 
-### Acknowledgements 
+### Acknowledgements

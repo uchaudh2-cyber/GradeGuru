@@ -48,7 +48,8 @@ def main():
         print("3. View Summary")
         print("4. Calculate GPA")
         print("5. What-If Scenario")
-        print("6. Save & Exit")
+        print("6. Is Passing?")                
+        print("7. Save & Exit")
 
         choice = get_int("Choose an option: ")
         if choice is None:
@@ -120,14 +121,41 @@ def main():
             else:
                 print(f"What-if predicted average for {cname}: {result:.2f}%")
 
-        # 6. Save & Exit
+        # 6. Is Passing?
         elif choice == 6:
+            if not profile.courses:
+                print("No courses available.")
+                continue
+            print("\nSelect a course:")
+            for i, c in enumerate(profile.courses):
+                print(f"{i+1}. {c.name}")
+
+            idx = get_int("Course number: ")
+            if idx is None:
+                continue
+            idx -= 1
+
+            if idx not in range(len(profile.courses)):
+                print("Invalid course selection.")
+                continue
+
+            course = profile.courses[idx]
+            avg = course.calculate_average()
+
+            if avg >= 60:
+                print(f"\n{course.name} IS passing with {avg:.2f}%.")
+            else:
+                print(f"\n{course.name} is NOT passing ({avg:.2f}%).")
+
+
+        # 7. Save & Exit
+        elif choice == 7:
             DataManager.save(profile)
             print("Saved. Goodbye!")
             break
 
         else:
-            print("Invalid option. Please choose 1–6.")
+            print("Invalid option. Please choose 1-7.")
 
 if __name__ == "__main__":
     main()

@@ -43,5 +43,3 @@ class DataManager:
             profile.courses.append(course)
 
         return profile
-
-
