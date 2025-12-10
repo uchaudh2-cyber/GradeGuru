@@ -1,3 +1,4 @@
+from course import Course
 class StudentProfile:
     """Stores all courses for one student and provides GPA tools."""
 
