@@ -40,6 +40,13 @@ class Assignment:
             "score": self.score,
             "weight": self.weight
         }
+    
+    def is_passing(self):
+        """Return True if the score is passing, False otherwise.
+
+        Passing is defined as 60% or higher.
+        """
+        return self.score >= 60
 
     @staticmethod
     def from_dict(data):
