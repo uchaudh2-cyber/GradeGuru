@@ -95,6 +95,28 @@ def test_what_if_prediction():
 
 
 # -------------------------
+# Additional StudentProfile Tests
+# -------------------------
+
+def test_letter_grade():
+    p = StudentProfile()
+    assert p.letter_grade(95) == "A"
+    assert p.letter_grade(85) == "B"
+    assert p.letter_grade(75) == "C"
+    assert p.letter_grade(65) == "D"
+    assert p.letter_grade(50) == "F"
+
+def test_summary_output():
+    p = StudentProfile()
+    p.add_course("Math", 3)
+    course = p.courses[0]
+
+    course.add_assignment("HW", 100, 1.0)
+
+    summary_text = p.summary()
+    assert "Math: 100.00% (A)" in summary_text
+
+# -------------------------
 # DataManager Tests
 # -------------------------
 
@@ -111,3 +133,4 @@ def test_save_and_load(tmp_path):
     loaded = DataManager.load(filename)
     assert len(loaded.courses) == 1
     assert loaded.courses[0].assignments[0].score == 90
+
