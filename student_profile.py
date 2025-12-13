@@ -1,44 +1,47 @@
 from course import Course
 
 class StudentProfile:
-    """Stores all courses for one student and provides GPA tools.
-
-    This object manages a collection of Course objects and
-    coordinates the calculations that depend on multiple courses.
+    """
+    Stores courses and handles GPA calculations.
     """
 
     def __init__(self):
-        """Create a new empty student profile.
-
-        Starts with an empty course list. Courses are added
-        through menu actions or during file loading.
-        """
+        """Initialize empty profile."""
         self.courses = []
 
     def add_course(self, name, credits):
-        """Add a new course to the student profile.
-
-        Creates a Course object and stores it internally.
-        This supports building a full semester record.
-        """
+        """Add a new course."""
         self.courses.append(Course(name, credits))
 
-    def calculate_gpa(self):
-        """Compute the student's GPA using course averages.
+    def remove_course(self, course_name):
+        """Remove a course by name."""
+        self.courses = [
+            c for c in self.courses if c.name != course_name
+        ]
 
-        Converts numeric averages into grade points and uses
-        credit values to produce a weighted GPA. Handles empty
-        profiles by returning 0.
-        """
+    def get_course(self, course_name):
+        """Return course by name or None."""
+        return next((c for c in self.courses if c.name == course_name), None)
+
+    def course_count(self):
+        """Return number of courses."""
+        return len(self.courses)
+
+    def has_courses(self):
+        """Return True if courses exist."""
+        return len(self.courses) > 0
+
+    def calculate_gpa(self):
+        """Calculate GPA."""
         if not self.courses:
             return 0.0
 
         total_points = 0
         total_credits = 0
 
-        for course in self.courses:
-            avg = course.calculate_average()
-            total_credits += course.credits
+        for c in self.courses:
+            avg = c.calculate_average()
+            total_credits += c.credits
 
             if avg >= 90: points = 4.0
             elif avg >= 80: points = 3.0
@@ -46,42 +49,31 @@ class StudentProfile:
             elif avg >= 60: points = 1.0
             else: points = 0.0
 
-            total_points += points * course.credits
+            total_points += points * c.credits
 
         return total_points / total_credits if total_credits else 0
 
     def what_if(self, course_name, predicted_score):
-        """Estimate a new average for a course based on a future grade.
-
-        Finds the matching course and simulates the effect of adding
-        a new assignment with an average weight. Returns None if the
-        course name does not match any stored course.
-        """
-        course = next((c for c in self.courses if c.name == course_name), None)
-
+        """Predict future average."""
+        course = self.get_course(course_name)
         if not course:
             return None
 
-        if course.assignments:
-            avg_weight = sum(a.weight for a in course.assignments) / len(course.assignments)
-        else:
-            avg_weight = 1.0
+        avg_weight = (
+            sum(a.weight for a in course.assignments) / len(course.assignments)
+            if course.assignments else 1.0
+        )
 
-        predicted_assignment = predicted_score * avg_weight
-        new_weight_sum = sum(a.weight for a in course.assignments) + avg_weight
-        new_total = sum(a.get_weighted_score() for a in course.assignments) + predicted_assignment
+        new_total = sum(a.get_weighted_score() for a in course.assignments)
+        new_total += predicted_score * avg_weight
+        new_weight = sum(a.weight for a in course.assignments) + avg_weight
 
-        new_avg = new_total / new_weight_sum
-        return new_avg
+        return new_total / new_weight
 
     def summary(self):
-        """Return a simple summary of each course and its average.
+        """Return summary string."""
+        return "\n".join(
+            f"{c.name}: {c.calculate_average():.2f}%"
+            for c in self.courses
+        )
 
-        Provides a clean, readable report that can be displayed
-        in the menu interface.
-        """
-        lines = []
-        for c in self.courses:
-            avg = c.calculate_average()
-            lines.append(f"{c.name}: {avg:.2f}%")
-        return "\n".join(lines)
