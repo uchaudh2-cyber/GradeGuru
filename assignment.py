@@ -43,9 +43,3 @@ class Assignment:
         """Readable representation of assignment."""
         return f"{self.name}: score={self.score}, weight={self.weight}"
 
-
-        This is useful during debugging or when printing
-        a course summary for the user.
-        """
-        return f"{self.name}: score={self.score}, weight={self.weight}"
-
